@@ -13,12 +13,19 @@ async function _enrich(zips, datacollections, clientId, clientSecret) {
         studyAreas: stringify(sa),
         analysisVariables: stringify(datacollections),
         suppressNullValues: false,
-        useData: stringify({"sourceCountry": "US"}),
+        useData: stringify({ "sourceCountry": "US" }),
         returnGeometry: true,
         token: token
     };
     let result = await post(online_url, params);
-    return featureSetToGeoJSON(result.results[0].value.FeatureSet[0]);
+    try {
+        var fset = result.results[0].value.FeatureSet[0];
+        return featureSetToGeoJSON(fset);
+    }
+    catch (err) {
+        return ({ "error": "Opps, error handling geoenrichment response." })
+    }
+
 }
 
 
