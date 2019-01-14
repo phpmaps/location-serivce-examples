@@ -1,7 +1,7 @@
-How to use location services app:
+#How to use:
 
 Run
-``` npm run ```
+``` npm start ```
 
 Run Dev
 ``` npm run dev ```
