@@ -1,0 +1,22 @@
+{
+  "name": "location-services-examples",
+  "version": "0.0.1",
+  "description": "Enriches US postal codes, returns spatial data w/ demographic and lifestyle data appened",
+  "main": "src/server/index.js",
+  "author": "@globebeta",
+  "scripts": {
+    "start": "node ./src/server/index.js",
+    "dev": "browser-sync start --port 4000 --files './src/public' & node ./src/server/index.js",
+    "deploy": "now",
+    "now-build": ""
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.3"
+  },
+  "dependencies": {
+    "@esri/arcgis-to-geojson-utils": "^1.3.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "request": "^2.88.0"
+  }
+}
