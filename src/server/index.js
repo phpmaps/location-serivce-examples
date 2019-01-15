@@ -1,7 +1,6 @@
 const express = require('express')
-var bodyParser = require('body-parser');
-const { enrich } = require('./libs/enrich');
-const { getAppToken } = require('./libs/utils');
+const bodyParser = require('body-parser');
+const { enrichZips } = require('./libs/enrich');
 
 const port = process.env.PORT || 3000
 const app = express()
@@ -19,7 +18,7 @@ app.post('/api/enrich/zips', async (req, res) => {
     let collections = params.collections;
     let clientId = params.clientId;
     let clientSecret = params.clientSecret;
-    let result = await enrich(postalCodes, collections, clientId, clientSecret);
+    let result = await enrichZips(postalCodes, collections, clientId, clientSecret);
     res.json(result)
 })
 
@@ -31,7 +30,6 @@ app.get('/api/example', (req, res) => {
 app.use(express.static('src/public', {
     index: "index.html"
 }))
-
 
 app.listen(port, err => {
     if (err) throw err
