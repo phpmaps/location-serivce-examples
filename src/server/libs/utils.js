@@ -1,4 +1,4 @@
-var request = require("request");
+const request = require("request");
 const { arcgisToGeoJSON } = require('@esri/arcgis-to-geojson-utils');
 
 function _getAppToken(clientId, clientSecret) {
@@ -15,7 +15,6 @@ function _getAppToken(clientId, clientSecret) {
                 grant_type: 'client_credentials'
             }
         };
-
         request(options, function (error, response, body) {
             if (error) {
                 reject()
@@ -82,7 +81,6 @@ function _featureSetToGeoJSON(featureSet) {
 
 
 var self = module.exports = {
-
     featureSetToGeoJSON: function featureSetToGeoJSON(featureSet) {
         return _featureSetToGeoJSON(featureSet);
     },
@@ -102,5 +100,4 @@ var self = module.exports = {
     get: function get(url, params, mark, msg = null) {
         return _get(url, params, msg, headers = null);
     }
-
 };

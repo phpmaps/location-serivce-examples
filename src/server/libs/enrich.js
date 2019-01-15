@@ -5,7 +5,7 @@ let online_url = "https://geoenrich.arcgis.com/arcgis/rest/services/World/geoenr
 let portal_url = "https://doubledouble.eastus.cloudapp.azure.com/portal/sharing/servers/09570257519241ee83c7c147e51db607/rest/services/World/GeoenrichmentServer/Geoenrichment/enrich";
 
 
-async function _enrich(zips, datacollections, clientId, clientSecret) {
+async function _enrichZips(zips, datacollections, clientId, clientSecret) {
     let sa = [{ "sourceCountry": "US", "layer": "US.ZIP5", "ids": zips }];
     let token = await getAppToken(clientId, clientSecret);
     let params = {
@@ -25,13 +25,11 @@ async function _enrich(zips, datacollections, clientId, clientSecret) {
     catch (err) {
         return ({ "error": "Opps, error handling geoenrichment response." })
     }
-
 }
 
 
 module.exports = {
-
-    enrich: function enrich(studyareas, datacollections, clientId, clientSecret) {
-        return _enrich(studyareas, datacollections, clientId, clientSecret);
+    enrichZips: function enrichZips(studyareas, datacollections, clientId, clientSecret) {
+        return _enrichZips(studyareas, datacollections, clientId, clientSecret);
     }
 }
