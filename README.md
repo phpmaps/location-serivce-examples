@@ -9,6 +9,7 @@ Run Dev
 Deploy
 ``` npm run deploy ```
 
+
 Example cURL ``` POST ``` request  to ``` /api/enrich/zips ```
 ```
 curl 'https://location-services-kdoemvpk3.now.sh/api/enrich/zips' --data 'params={
@@ -27,3 +28,6 @@ curl 'https://location-services-kdoemvpk3.now.sh/api/enrich/zips' --data 'params
 ```
 
 *go to [Esri's ArcGIS Developer Site](https://developers.arcgis.com/) and create a free account, to obtain a real clientId / clientSecret 
+
+Try it, demo link:
+https://location-serivce-examples-dp1fqiv0x.now.sh/
