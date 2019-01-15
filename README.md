@@ -29,5 +29,5 @@ curl 'https://location-services-kdoemvpk3.now.sh/api/enrich/zips' --data 'params
 
 *go to [Esri's ArcGIS Developer Site](https://developers.arcgis.com/) and create a free account, to obtain a real clientId / clientSecret 
 
-Try it, demo link:
+Demo link:
 https://location-serivce-examples-dp1fqiv0x.now.sh/
